@@ -2,13 +2,13 @@ module.exports = {
     entry: './src/index.js',
     module: {
         rules: [{
-            test: /\.(js)$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: ['bable-loader'],
         }],
     },
     resolve: {
-        extensions: ['*', '.js'],
+        extensions: ['*', '.js', '.jsx'],
     },
     output: {
         path: __dirname + '/dist',
