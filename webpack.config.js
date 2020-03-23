@@ -1,16 +1,23 @@
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.tsx',
     module: {
-        rules: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: ['bable-loader'],
-        }],
+        rules: [
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: ['ts-loader'],
+            },
+            {
+                enforce: 'pre',
+                test: /\.(js)$/,
+                loader: 'source-map-loader',
+            }
+        ],
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx'],
+        extensions: ['*', '.ts', '.tsx', '.js'],
     },
     output: {
         path: __dirname + '/dist',
@@ -20,6 +27,11 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
     ],
+    // externals: {
+    //     'react': 'React',
+    //     'react-dom': 'ReactDOM',
+    // },
+    devtool: 'source-map',
     devServer: {
         contentBase: './dist',
         hot: true,
