@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React from 'react';
+import './App.scss';
 
 const App = () => {
     return (
-        <div>React Boilerplate</div>
+        <div className="sass-test">React Boilerplate</div>
     );
 };
 
