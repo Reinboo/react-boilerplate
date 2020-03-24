@@ -5,7 +5,11 @@
   "main": "src/index.tsx",
   "scripts": {
     "start": "webpack-dev-server --mode development --config ./webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --colors",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --ext .js,.ts,.tsx ."
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,10 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.1",
+    "@babel/preset-typescript": "^7.9.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1",
+    "@types/jest": "^25.1.4",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
     "@types/webpack-env": "^1.15.1",
@@ -30,8 +38,12 @@
     "babel-loader": "^8.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.1.0",
+    "jest-transform-stub": "^2.0.0",
     "react-hot-loader": "^4.12.20",
     "source-map-loader": "^0.2.4",
+    "ts-jest": "^25.2.1",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.0",
@@ -39,7 +51,9 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "core-js": "^3.6.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.5"
   }
 }
